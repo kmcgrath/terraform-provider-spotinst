@@ -14,9 +14,10 @@ steps:
   - name: docker-workspace-fix
     image: golang:1.9.1
     commands:
-      - mkdir -p /go/src/github.com/terraform-providers/terraform-provider-spotinst
-      - cd /go/src/github.com/terraform-providers/terraform-provider-spotinst
+      - mkdir -p /go/src/github.com/terraform-providers
+      - cd /go/src/github.com/terraform-providers
       - git clone $DRONE_REPO_LINK
+      - cd terraform-provider-spotinst
       - git checkout $DRONE_COMMIT
 
   - name: install
