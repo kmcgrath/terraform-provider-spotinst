@@ -3,7 +3,7 @@ name: default
 
 workspace:
   base: /go
-  path:
+  path: /
   #base: /go
   #path: src/github.com/terraform-providers/terraform-provider-spotinst
 
