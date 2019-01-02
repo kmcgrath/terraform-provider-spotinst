@@ -3,20 +3,33 @@ name: default
 
 workspace:
   base: /go
-  path: src
+  path: /
   #base: /go
   #path: src/github.com/terraform-providers/terraform-provider-spotinst
 
+clone:
+  disable: true
+
 steps:
+  - name: docker-workspace-fix
+    image: golang:1.9.1
+    commands:
+      - mkdir -p /go/src/github.com/terraform-providers/terraform-provider-spotinst
+      - cd /go/src/github.com/terraform-providers/terraform-provider-spotinst
+      - git clone $DRONE_REPO_LINK
+      - git checkout $DRONE_COMMIT
+
   - name: install
     image: golang:1.9.1
     commands:
+      - cd /go/src/github.com/terraform-providers/terraform-provider-spotinst
       - bash scripts/gogetcookie.sh
       - go get github.com/kardianos/govendor
 
   - name: build
     image: golang:1.9.1
     commands:
+      - cd /go/src/github.com/terraform-providers/terraform-provider-spotinst
       - bash scripts/gogetcookie.sh
       - go get github.com/kardianos/govendor
       - make test
