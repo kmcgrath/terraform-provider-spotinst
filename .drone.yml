@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 
 workspace:
-  base: /go
+  base: /tmp
   path: /
   #base: /go
   #path: src/github.com/terraform-providers/terraform-provider-spotinst
