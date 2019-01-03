@@ -42,11 +42,11 @@ steps:
       - cd /
       - git clone https://github.com/hashicorp/terraform-website.git
       - cd /terraform-website
-      - until curl -sS http://hashicorp-middleman-website:4567/ > /dev/null; do sleep 1; done
-      - /terraform-website/content/scripts/check-links.sh "http://hashicorp-middleman-website:4567/docs/providers/spotinst"
+      - until curl -sS http://website:4567/ > /dev/null; do sleep 1; done
+      - /terraform-website/content/scripts/check-links.sh "http://website:4567/docs/providers/spotinst"
 
 services:
-  - name: hashicorp-middleman-website
+  - name: website
     image: hashicorp/middleman-hashicorp:0.3.35
     commands:
       - cd /
