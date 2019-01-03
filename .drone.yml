@@ -5,8 +5,8 @@ workspace:
   base: /go
   path: /
 
-  #clone:
-  #disable: true
+clone:
+  disable: true
 
 
 steps:
