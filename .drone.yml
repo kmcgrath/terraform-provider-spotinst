@@ -58,4 +58,6 @@ services:
       - /entrypoint.sh bundle exec middleman server
       - until curl -sS http://localhost:4567/ > /dev/null; do sleep 1; done
       - /terraform-website/content/scripts/check-links.sh "http://127.0.0.1:4567/docs/providers/spotinst"
+    ports:
+    - 4567
 
