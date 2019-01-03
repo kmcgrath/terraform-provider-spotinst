@@ -52,7 +52,7 @@ services:
       - cd /
       - git clone https://github.com/hashicorp/terraform-website.git
       - cd /terraform-website
-      - mkdir -p /ext/providers/spotinst/website
+      - mkdir -p /ext/providers/spotinst
       - ln -s /go/src/github.com/terraform-providers/terraform-provider-spotinst/website /website
       - ln -s /go/src/github.com/terraform-providers/terraform-provider-spotinst/website /ext/providers/spotinst/website
       - /entrypoint.sh bundle exec middleman server
