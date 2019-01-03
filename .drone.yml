@@ -8,6 +8,7 @@ workspace:
 clone:
   disable: true
 
+
 steps:
   - name: docker-workspace-fix
     image: golang:1.9.1
