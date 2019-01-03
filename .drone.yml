@@ -42,7 +42,7 @@ steps:
       - cd /
       - git clone https://github.com/hashicorp/terraform-website.git
       - cd /terraform-website
-      - until curl -sS http://$WEBSITE_SERVICE_HOST:4567/ > /dev/null; do sleep 1; done
+        # - until curl -sS http://$WEBSITE_SERVICE_HOST:4567/ > /dev/null; do sleep 1; done
       - /terraform-website/content/scripts/check-links.sh "http://$WEBSITE_SERVICE_HOST:4567/docs/providers/spotinst"
 
 services:
@@ -56,8 +56,6 @@ services:
       - ln -s /go/src/github.com/terraform-providers/terraform-provider-spotinst/website /website
       - ln -s /go/src/github.com/terraform-providers/terraform-provider-spotinst/website /ext/providers/spotinst/website
       - /entrypoint.sh bundle exec middleman server
-      - until curl -sS http://localhost:4567/ > /dev/null; do sleep 1; done
-      - /terraform-website/content/scripts/check-links.sh "http://127.0.0.1:4567/docs/providers/spotinst"
     ports:
     - 4567
 
