@@ -48,7 +48,7 @@ steps:
       - ln -s /go/src/github.com/terraform-providers/terraform-provider-spotinst/website /website
       - ln -s /go/src/github.com/terraform-providers/terraform-provider-spotinst/website /ext/providers/spotinst/website
       - ln -s /tmp/src/terraform-website/content /terraform-website
-      - ls -al /website
+      - ls -al /website/*
       - mkdir -p /website/docs/assets
       - mkdir -p /website/docs/layouts
       - ln -s /tmp/src/terraform-website/content/source/assets /website/docs/assets
