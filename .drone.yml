@@ -51,13 +51,15 @@ services:
     commands:
       - mkdir -p /tmp/src/
       - mkdir -p /ext/providers/spotinst
+      - mkdir -p /website/docs/assets
+      - mkdir -p /website/docs/layouts
       - cd /tmp/src
       - git clone https://github.com/hashicorp/terraform-website.git
+      - ln -s /go/src/github.com/terraform-providers/terraform-provider-spotinst/website /website
+      - ln -s /go/src/github.com/terraform-providers/terraform-provider-spotinst/website /ext/providers/spotinst/website
       - ln -s /tmp/src/terraform-website/content /terraform-website
       - ln -s /tmp/src/terraform-website/content/source/assets /website/docs/assets
       - ln -s /tmp/src/terraform-website/content/source/layouts /website/docs/layouts
-      - ln -s /go/src/github.com/terraform-providers/terraform-provider-spotinst/website /website
-      - ln -s /go/src/github.com/terraform-providers/terraform-provider-spotinst/website /ext/providers/spotinst/website
       - cd /terraform-website
       - /entrypoint.sh bundle exec middleman server
     ports:
