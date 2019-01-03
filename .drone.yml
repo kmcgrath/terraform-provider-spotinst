@@ -53,15 +53,15 @@ steps:
       - mkdir -p /website/docs/layouts
       - ln -s /tmp/src/terraform-website/content/source/assets /website/docs/assets
       - ln -s /tmp/src/terraform-website/content/source/layouts /website/docs/layouts
+      - ls -al /website/*
+      - ls -al /terraform-website/*
       - cd /terraform-website
-      - ls -al /website
       - /entrypoint.sh bundle exec middleman server
     ports:
     - 4567
   - name: website-test
     image: hashicorp/middleman-hashicorp:0.3.35
     commands:
-      - ls /go/src
       - cd /
       - git clone https://github.com/hashicorp/terraform-website.git
       - cd /terraform-website
